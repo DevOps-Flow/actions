@@ -19,7 +19,15 @@ inputs:
     description: 'Tag number'
     required: false
     default: ""
-
+  registryUrl:
+    description: Harbor registry base url
+    required: false
+  registryUsername:
+    description: Username to authenticate on Harbor registry
+    required: false
+  registryPassword:
+    description: Password from username 
+    required: false
 runs:
   using: 'composite'
   steps:
@@ -31,6 +39,6 @@ runs:
         DOCKERFILE: ${{ inputs.dockerfile }}
         IMAGE_NAME_SUFFIX: ${{ inputs.imageNameSuffix }}
         TAG: ${{ inputs.tag }}
-        REGISTRY_URL: ${{ secrets.REGISTRY_URL }}
-        REGISTRY_USERNAME: ${{ secrets.REGISTRY_USERNAME }}
-        REGISTRY_PASSWORD: ${{ secrets.REGISTRY_PASSWORD }}
+        REGISTRY_URL: ${{ inputs.registryUrl }}
+        REGISTRY_USERNAME: ${{ inputs.registryUsername }}
+        REGISTRY_PASSWORD: ${{ inputs.registryPassword }}
