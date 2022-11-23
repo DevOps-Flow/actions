@@ -1,6 +1,6 @@
 #!/bin/bash
 set -e
-FULL_NAME=$(echo "${REGISTRY_URL}/${PROJECT}/${PROJECT_NAME}${IMAGE_NAME_SUFFIX}:${VERSION}" | awk '{print tolower($0)}')
+FULL_NAME=$(echo "${REGISTRY_URL}/${PROJECT}/${PROJECT_NAME}${IMAGE_NAME_SUFFIX}:${TAG}" | awk '{print tolower($0)}')
 
 
 echo "#############################################"

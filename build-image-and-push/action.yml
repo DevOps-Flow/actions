@@ -15,8 +15,8 @@ inputs:
   imageNameSuffix:
     description: 'Suffix to be appended to the image name.'
     required: false
-  tags:
-    description: 'List of tags (example: "tag1;tag2;tag3")'
+  tag:
+    description: 'Tag number'
     required: false
     default: ""
 
@@ -24,11 +24,13 @@ runs:
   using: 'composite'
   steps:
     - shell: bash
-      if: runner.os == 'Linux'
       run: ${{ github.action_path }}/build-and-push.sh
       env:
         PROJECT: ${{ inputs.project }}
         BUILD_ARGS: ${{ inputs.buildArgs }}
         DOCKERFILE: ${{ inputs.dockerfile }}
         IMAGE_NAME_SUFFIX: ${{ inputs.imageNameSuffix }}
-        TAGS: ${{ inputs.tags }}
+        TAG: ${{ inputs.tag }}
+        REGISTRY_URL: ${{ secrets.REGISTRY_URL }}
+        REGISTRY_USERNAME: ${{ secrets.REGISTRY_USERNAME }}
+        REGISTRY_PASSWORD: ${{ secrets.REGISTRY_PASSWORD }}
