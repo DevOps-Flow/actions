@@ -19,7 +19,7 @@ runs:
   using: 'composite'
   steps:
     - shell: bash
-      run: ${{ github.action_push }}/docker.sh
+      run: ${{ github.action_path }}/docker.sh
       env:
         IMAGE: ${{ inputs.image }}
         IMAGE_ARGS: ${{ inputs.imageArgs }}
