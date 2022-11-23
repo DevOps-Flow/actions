@@ -23,5 +23,5 @@ runs:
       env:
         IMAGE: ${{ inputs.image }}
         IMAGE_ARGS: ${{ inputs.imageArgs }}
-        EXTRA_ARGS: $ {{ inputs.extraArgs }}
-        MAVEN_SETTINGS: $ {{ inputs.settings }}
+        EXTRA_ARGS: ${{ inputs.extraArgs }}
+        MAVEN_SETTINGS: ${{ inputs.settings }}
