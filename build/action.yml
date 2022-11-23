@@ -1,0 +1,27 @@
+name: 'Build Maven Project'
+description: 'Build a Java Project with Maven.'
+inputs:
+  image:
+    description: Docker imagbe to be used in this action
+    required: false
+    default: "maven:3-jdk-8"
+  imageArgs:
+    description: Docker arguments to run image
+    required: false
+    default: ""
+  extraArgs:
+    description: Extra arguments to be provided to maven
+    required: false
+  settings:
+    description: Provide maven settings secret
+    required: true
+runs:
+  using: 'composite'
+  steps:
+    - shell: bash
+      run: ${{ github.action_push }}/docker.sh
+    env:
+      IMAGE: ${{ inputs.image }}
+      IMAGE_ARGS: ${{ inputs.imageArgs }}
+      EXTRA_ARGS: $ {{ inputs.extraArgs }}
+      MAVEN_SETTINGS: $ {{ inputs.settings }}
