@@ -20,8 +20,8 @@ runs:
   steps:
     - shell: bash
       run: ${{ github.action_push }}/docker.sh
-    env:
-      IMAGE: ${{ inputs.image }}
-      IMAGE_ARGS: ${{ inputs.imageArgs }}
-      EXTRA_ARGS: $ {{ inputs.extraArgs }}
-      MAVEN_SETTINGS: $ {{ inputs.settings }}
+      env:
+        IMAGE: ${{ inputs.image }}
+        IMAGE_ARGS: ${{ inputs.imageArgs }}
+        EXTRA_ARGS: $ {{ inputs.extraArgs }}
+        MAVEN_SETTINGS: $ {{ inputs.settings }}
