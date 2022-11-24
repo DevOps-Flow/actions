@@ -15,7 +15,7 @@ runs:
   using: 'composite'
   steps:
     - shell: bash
-      run: ${{ github.action_path }}/deploy-k8s/deploy-k8s.sh
+      run: ${{ github.action_path }}/deploy-k8s.sh
       env:
         NAMESPACE: ${{ inputs.namespace }}
         MANIFEST: ${{ inputs.manifest }}
